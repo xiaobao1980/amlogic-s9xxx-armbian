@@ -377,6 +377,7 @@ jobs:
           tag: ${{ steps.clean.outputs.build_tag }}
           artifacts: build/output/images/*
           allowUpdates: true
+          makeLatest: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rebuild Armbian
@@ -402,6 +403,7 @@ jobs:
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true
+          makeLatest: true
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             ### Armbian For Homeassistant Supervisor Image information
