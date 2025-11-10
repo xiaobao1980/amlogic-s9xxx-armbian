@@ -236,14 +236,15 @@ on:
         options:
           - ext4
           - btrfs
-      armbian_storage:
-        description: "Select image storage type."
+      armbian_edition:
+        description: "Select image edition type."
         required: false
-        default: "save"
+        default: "server"
         type: choice
         options:
-          - save
-          - temp
+          - server
+          - desktop
+          - beta
       builder_name:
         description: "Set Armbian builder signature."
         required: false
@@ -359,7 +360,7 @@ jobs:
 
           # Output cleaning result information
           df -hT ${PWD}
-          echo "build_tag=Armbian_${{ inputs.set_release }}_${{ inputs.armbian_storage }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
+          echo "build_tag=Armbian_${{ inputs.set_release }}_arm64_${{ inputs.armbian_edition }}_$(date +"%Y.%m")" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Upload Armbian image to Release
