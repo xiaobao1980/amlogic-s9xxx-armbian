@@ -25,7 +25,8 @@ on:
         default: "all"
         type: choice
         options:
-          - all
+        #  - all
+          - zyst-2168k
           - top55
           - after55
           - a311d-oes_s922x-oes-plus_wxy-oect
@@ -195,7 +196,7 @@ on:
       armbian_kernel:
         description: "Select kernel version."
         required: false
-        default: "6.1.y_6.12.y"
+        default: "6.1.y"
         type: choice
         options:
           - 5.10.y
@@ -332,7 +333,7 @@ jobs:
           # Compile method and parameter description: https://docs.armbian.com/Developer-Guide_Build-Options
           cd build/
               ./compile.sh RELEASE=${{ inputs.set_release }} BOARD=odroidn2 BRANCH=current BUILD_MINIMAL=no \
-                           BUILD_ONLY=default HOST=armbian BUILD_DESKTOP=no EXPERT=yes KERNEL_CONFIGURE=no \
+                           BUILD_ONLY=default HOST=armbian BUILD_DESKTOP=no EXPERT=yes DOWNLOAD_MIRROR=china KERNEL_CONFIGURE=no \
                            COMPRESS_OUTPUTIMAGE="sha" SHARE_LOG=yes
           echo "status=success" >> ${GITHUB_OUTPUT}
 
