@@ -26,6 +26,8 @@ on:
         type: choice
         options:
         #  - all
+          - lubancat-2n
+          - roc-k50s
           - zyst-2168k
           - firefly-rk3399
           - jp-tvbox
